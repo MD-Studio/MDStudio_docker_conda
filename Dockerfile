@@ -11,6 +11,6 @@ WORKDIR /home/mdstudio
 
 RUN conda install -c anaconda twisted==17.9.0
 
-RUN git clone git://github.com/MD-Studio/MDStudio.git
+RUN git clone --branch devel --single-branch git://github.com/MD-Studio/MDStudio.git
 
 RUN  pip install -e MDStudio/mdstudio
