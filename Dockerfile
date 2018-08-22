@@ -13,4 +13,4 @@ RUN git clone --branch devel --single-branch git://github.com/MD-Studio/MDStudio
 
 RUN conda install -c anaconda twisted==18.4.0
 
-RUN  cd MDStudio && pip install -r requirements-dev.txt --ignore-installed && pip install -e mdstudio
+RUN  cd MDStudio && pip install -e mdstudio
