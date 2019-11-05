@@ -1,4 +1,4 @@
-FROM conda/miniconda2
+FROM conda/miniconda3
 
 RUN apt-get update -y && apt-get install git -y
 
@@ -9,8 +9,11 @@ COPY . /home/mdstudio
 
 WORKDIR /home/mdstudio
 
-RUN git clone --branch devel --single-branch git://github.com/MD-Studio/MDStudio.git
+RUN git clone --branch master --single-branch git://github.com/MD-Studio/MDStudio.git
 
-RUN conda install -c anaconda twisted==18.4.0
+# Update conda and install fixed twisted version of MDStudio
+RUN conda update conda && \
+    conda install -c anaconda twisted==18.4.0
 
+# Install MDStudio library
 RUN  cd MDStudio && pip install -e mdstudio
