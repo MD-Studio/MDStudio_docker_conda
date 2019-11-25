@@ -1,6 +1,8 @@
 FROM conda/miniconda3
 
-RUN apt-get update -y && apt-get install git -y
+RUN apt-get update -y && \
+    apt-get install git -y && \
+    apt-get install -y gcc
 
 # Service user
 RUN useradd mdstudio && mkdir /home/mdstudio && chown mdstudio:mdstudio /home/mdstudio
