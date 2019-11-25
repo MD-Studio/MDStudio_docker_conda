@@ -15,8 +15,9 @@ RUN git clone --branch master --single-branch git://github.com/MD-Studio/MDStudi
 
 # Update conda and install fixed twisted version of MDStudio
 RUN conda update conda && \
-    conda install python=3.6 && \
-    conda install -c anaconda twisted==18.4.0
+    conda install python=3.6
 
 # Install MDStudio library
-RUN  cd MDStudio && pip install -e mdstudio
+RUN cd MDStudio && rm -rf src/
+
+RUN cd MDStudio && pip install -r requirements-dev.txt && pip install -e mdstudio
